@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo oscuro base -->
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#070A10"
+                android:centerColor="#0B1020"
+                android:endColor="#05060B"
+                android:angle="270"/>
+        </shape>
+    </item>
+
+    <!-- Glow/tinte por tema (colorSecondary) -->
+    <item android:top="-200dp" android:left="-200dp">
+        <shape>
+            <corners android:radius="300dp"/>
+            <solid android:color="?attr/colorSecondary"/>
+        </shape>
+    </item>
+
+    <!-- Control de intensidad del tinte -->
+    <item>
+        <shape>
+            <solid android:color="#000000"/>
+        </shape>
+        <alpha android:value="20"/> <!-- 0–255 (20 = sutil) -->
+    </item>
+</layer-list>

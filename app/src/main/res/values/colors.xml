@@ -1,0 +1,27 @@
+<resources>
+    <!-- Base dark -->
+    <color name="pf_bg">#070A10</color>
+    <color name="pf_primary_dark">#121826</color>
+    <color name="pf_accent_dark">#7C5CFF</color>
+    <color name="pf_tertiary_dark">#00BCD4</color>
+
+    <!-- Rojo -->
+    <color name="pf_red_primary">#2A0A0A</color>
+    <color name="pf_red_accent">#FF2D55</color>
+    <color name="pf_red_tertiary">#FF8A00</color>
+
+    <!-- Azul -->
+    <color name="pf_blue_primary">#071423</color>
+    <color name="pf_blue_accent">#2F80FF</color>
+    <color name="pf_blue_tertiary">#00D1FF</color>
+
+    <!-- Morado -->
+    <color name="pf_purple_primary">#150B2A</color>
+    <color name="pf_purple_accent">#8A5CFF</color>
+    <color name="pf_purple_tertiary">#FF4FD8</color>
+
+    <!-- Verde -->
+    <color name="pf_green_primary">#061B12</color>
+    <color name="pf_green_accent">#2BFF88</color>
+    <color name="pf_green_tertiary">#00FFCC</color>
+</resources>

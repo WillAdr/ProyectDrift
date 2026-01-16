@@ -1,0 +1,51 @@
+<resources>
+    <!-- Overlays del Toolbar / menú desplegable -->
+    <style name="Theme.ProyectoFinal.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
+
+    <style name="Theme.ProyectoFinal.PopupOverlay" parent="ThemeOverlay.Material3.Dark" />
+
+    <style name="Theme.ProyectoFinal.Oscuro" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/pf_primary_dark</item>
+        <item name="colorSecondary">@color/pf_accent_dark</item>
+        <item name="colorTertiary">@color/pf_tertiary_dark</item>
+        <item name="fontFamily">@font/inter</item>
+
+        <item name="android:statusBarColor">@color/pf_bg</item>
+    </style>
+
+    <style name="Theme.ProyectoFinal.Rojo" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/pf_red_primary</item>
+        <item name="colorSecondary">@color/pf_red_accent</item>
+        <item name="fontFamily">@font/inter</item>
+        <item name="colorTertiary">@color/pf_red_tertiary</item>
+        <item name="android:statusBarColor">@color/pf_bg</item>
+    </style>
+
+    <style name="Theme.ProyectoFinal.Azul" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/pf_blue_primary</item>
+        <item name="colorSecondary">@color/pf_blue_accent</item>
+        <item name="fontFamily">@font/inter</item>
+
+        <item name="colorTertiary">@color/pf_blue_tertiary</item>
+        <item name="android:statusBarColor">@color/pf_bg</item>
+    </style>
+
+    <style name="Theme.ProyectoFinal.Morado" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/pf_purple_primary</item>
+        <item name="colorSecondary">@color/pf_purple_accent</item>
+        <item name="fontFamily">@font/inter</item>
+
+        <item name="colorTertiary">@color/pf_purple_tertiary</item>
+        <item name="android:statusBarColor">@color/pf_bg</item>
+    </style>
+
+    <style name="Theme.ProyectoFinal.Verde" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/pf_green_primary</item>
+        <item name="colorSecondary">@color/pf_green_accent</item>
+        <item name="fontFamily">@font/inter</item>
+
+        <item name="colorTertiary">@color/pf_green_tertiary</item>
+        <item name="android:statusBarColor">@color/pf_bg</item>
+    </style>
+
+</resources>

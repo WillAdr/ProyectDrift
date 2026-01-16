@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <!-- EXISTENTES (Template) -->
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.proyectofinal.ui.Inicio.InicioFragment"
+        android:label="Inicio" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.proyectofinal.ui.Piezas.PiezasFragment"
+        android:label="Piezas de auto" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.proyectofinal.ui.Ropa.RopaFragment"
+        android:label="Ropa" />
+
+    <!-- NUEVOS -->
+    <fragment
+        android:id="@+id/nav_carrito"
+        android:name="com.example.proyectofinal.ui.carrito.CarritoFragment"
+        android:label="Carrito" />
+
+    <fragment
+        android:id="@+id/nav_pedidos"
+        android:name="com.example.proyectofinal.ui.pedidos.MisPedidosFragment"
+        android:label="Mis pedidos" />
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.example.proyectofinal.ui.perfil.PerfilFragment"
+        android:label="Perfil" />
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.proyectofinal.ui.Registro.LoginFragment"
+        android:label="Iniciar sesión" />
+
+    <fragment
+        android:id="@+id/nav_registro"
+        android:name="com.example.proyectofinal.ui.Registro.RegistroFragment"
+        android:label="Registro" />
+
+    <fragment
+        android:id="@+id/nav_acerca"
+        android:name="com.example.proyectofinal.ui.acerca.AcercaDeFragment"
+        android:label="Acerca de" />
+
+</navigation>
