@@ -25,7 +25,6 @@
         android:paddingBottom="8dp"
         app:menu="@menu/activity_main_drawer"
         app:headerLayout="@layout/nav_header_main"
-        app:background="@drawable/bg_drawer_final"
         app:itemIconTint="?attr/colorSecondary"
         app:itemTextColor="?attr/colorSecondary"
         app:itemShapeFillColor="@android:color/transparent" />

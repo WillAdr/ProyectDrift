@@ -2,6 +2,7 @@ package com.example.proyectofinal.ui.perfil;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
@@ -14,13 +15,12 @@ public class PerfilViewModel extends AndroidViewModel {
 
     private final PedidoRepository pedidoRepository;
 
-    public PerfilViewModel(Application application) {
+    public PerfilViewModel(@NonNull Application application) {
         super(application);
         pedidoRepository = new PedidoRepository(application);
     }
 
-    // Obtener la lista de pedidos sin pasar un idUsuario explícito
-    public LiveData<List<PedidoEntity>> obtenerPedidos() {
-        return pedidoRepository.listarPedidos();
+    public LiveData<List<PedidoEntity>> obtenerPedidos(int idUsuario) {
+        return pedidoRepository.listarPedidosPorUsuario(idUsuario);
     }
 }

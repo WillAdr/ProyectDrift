@@ -28,4 +28,8 @@ public interface ProductoDao {
 
     @Query("SELECT * FROM productos WHERE categoria = :categoria AND (nombre LIKE '%' || :texto || '%' OR descripcion LIKE '%' || :texto || '%') ORDER BY idProducto DESC")
     LiveData<List<ProductoEntity>> buscarEnCategoria(String categoria, String texto);
+
+    // ✅ Para seed
+    @Query("SELECT COUNT(*) FROM productos")
+    int contarProductosSync();
 }

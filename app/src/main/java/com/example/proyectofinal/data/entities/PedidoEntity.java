@@ -13,11 +13,13 @@ public class PedidoEntity {
     private int idUsuario;
     private double total;
     private String fecha;
+    private String resumenProductos;
 
-    public PedidoEntity(int idUsuario, double total, String fecha) {
+    public PedidoEntity(int idUsuario, double total, String fecha, String resumenProductos) {
         this.idUsuario = idUsuario;
         this.total = total;
         this.fecha = fecha;
+        this.resumenProductos = resumenProductos;
     }
 
     @Ignore
@@ -25,9 +27,9 @@ public class PedidoEntity {
         this.idUsuario = idUsuario;
         this.total = total;
         this.fecha = "";
+        this.resumenProductos = "";
     }
 
-    // Getters y Setters
     public int getIdPedido() { return idPedido; }
     public void setIdPedido(int idPedido) { this.idPedido = idPedido; }
 
@@ -39,4 +41,7 @@ public class PedidoEntity {
 
     public String getFecha() { return fecha; }
     public void setFecha(String fecha) { this.fecha = fecha; }
+
+    public String getResumenProductos() { return resumenProductos; }
+    public void setResumenProductos(String resumenProductos) { this.resumenProductos = resumenProductos; }
 }

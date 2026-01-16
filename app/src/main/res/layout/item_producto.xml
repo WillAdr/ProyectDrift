@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="12dp">
 
-        <!-- Imagen del producto -->
+
         <ImageView
             android:id="@+id/imgProducto"
             android:layout_width="72dp"

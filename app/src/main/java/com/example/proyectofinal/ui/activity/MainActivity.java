@@ -4,24 +4,24 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
-import com.example.proyectofinal.R;
-import com.google.android.material.navigation.NavigationView;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.proyectofinal.databinding.ActivityMainBinding;import com.example.proyectofinal.data.repository.ThemeManager;
-
+import com.example.proyectofinal.R;
+import com.example.proyectofinal.data.repository.SesionManager;
+import com.example.proyectofinal.data.repository.ThemeManager;
+import com.example.proyectofinal.databinding.ActivityMainBinding;
+import com.example.proyectofinal.ui.util.GlassUtil;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+
+        GlassUtil.applyGlass70RoundedView(navigationView, 22f);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home,
@@ -59,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
                 navController.navigate(R.id.nav_carrito);
             }
         });
+
+        SesionManager sesion = new SesionManager(this);
+        if (sesion.haySesion()) {
+            navController.navigate(R.id.nav_home);
+        }
     }
 
     @Override
@@ -70,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
     }
 }

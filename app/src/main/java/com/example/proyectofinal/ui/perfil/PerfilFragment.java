@@ -9,12 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.proyectofinal.R;
 import com.example.proyectofinal.data.repository.SesionManager;
 import com.example.proyectofinal.data.repository.ThemeManager;
 import com.example.proyectofinal.databinding.FragmentPerfilBinding;
 import com.example.proyectofinal.ui.adapter.PedidoAdapter;
+import com.example.proyectofinal.ui.util.GlassUtil;
 
 public class PerfilFragment extends Fragment {
 
@@ -31,7 +34,6 @@ public class PerfilFragment extends Fragment {
 
         binding = FragmentPerfilBinding.inflate(inflater, container, false);
 
-        // micro animación
         View root = binding.getRoot();
         root.setAlpha(0f);
         root.setTranslationY(12f);
@@ -40,25 +42,31 @@ public class PerfilFragment extends Fragment {
         sesion = new SesionManager(requireContext());
         vmPedidos = new ViewModelProvider(this).get(PedidosViewModel.class);
 
+        GlassUtil.applyGlass70Card(binding.cardPerfil);
+        GlassUtil.applyGlass70Card(binding.cardTema);
+
         adapter = new PedidoAdapter(requireContext());
         binding.rvPedidos.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvPedidos.setAdapter(adapter);
 
         if (!sesion.haySesion()) {
             binding.tvPerfilInfo.setText("Sesión: (no iniciada)");
+            adapter.setLista(null);
         } else {
             binding.tvPerfilInfo.setText("Sesión: " + sesion.getCorreo() + (sesion.esAdmin() ? " (ADMIN)" : " (USUARIO)"));
 
             if (!sesion.esAdmin()) {
-                vmPedidos.listarPedidos(sesion.getIdUsuario()).observe(getViewLifecycleOwner(), lista -> {
-                    adapter.setLista(lista);
-                    binding.rvPedidos.setAlpha(0f);
-                    binding.rvPedidos.animate().alpha(1f).setDuration(180).start();
-                });
+                vmPedidos.listarPedidos(sesion.getIdUsuario()).observe(getViewLifecycleOwner(), lista -> adapter.setLista(lista));
+            } else {
+                adapter.setLista(null);
             }
         }
 
-        // temas (si ya los tienes)
+        binding.btnCerrarSesion.setOnClickListener(v -> {
+            sesion.cerrarSesion();
+            Navigation.findNavController(v).navigate(R.id.nav_login);
+        });
+
         ThemeManager tm = new ThemeManager(requireContext());
         binding.btnTemaOscuro.setOnClickListener(v -> { tm.setTema(ThemeManager.TEMA_OSCURO); requireActivity().recreate(); });
         binding.btnTemaRojo.setOnClickListener(v -> { tm.setTema(ThemeManager.TEMA_ROJO); requireActivity().recreate(); });

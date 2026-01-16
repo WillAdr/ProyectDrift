@@ -18,4 +18,8 @@ public interface UsuarioDao {
 
     @Query("SELECT * FROM usuarios WHERE correo = :correo LIMIT 1")
     LiveData<UsuarioEntity> buscarPorCorreo(String correo);
+
+    // ✅ Para seed
+    @Query("SELECT COUNT(*) FROM usuarios")
+    int contarUsuariosSync();
 }

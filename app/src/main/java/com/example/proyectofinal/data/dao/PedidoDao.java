@@ -15,7 +15,6 @@ public interface PedidoDao {
     @Insert
     long insertar(PedidoEntity pedido);
 
-    // ✅ Pedidos por usuario (esto es lo que debes usar en Perfil)
     @Query("SELECT * FROM pedidos WHERE idUsuario = :idUsuario ORDER BY idPedido DESC")
     LiveData<List<PedidoEntity>> listarPedidosPorUsuario(int idUsuario);
 

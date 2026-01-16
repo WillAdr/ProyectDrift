@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyectofinal.data.entities.PedidoEntity;
 import com.example.proyectofinal.databinding.ItemPedidoBinding;
+import com.example.proyectofinal.ui.util.GlassUtil;
+import com.google.android.material.card.MaterialCardView;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -44,6 +46,10 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.PedidoVH> 
     @Override
     public void onBindViewHolder(@NonNull PedidoVH holder, int position) {
         PedidoEntity pedido = lista.get(position);
+
+        if (holder.binding.getRoot() instanceof MaterialCardView) {
+            GlassUtil.applyGlass70Card((MaterialCardView) holder.binding.getRoot());
+        }
 
         holder.binding.tvPedidoFecha.setText("Fecha: " + pedido.getFecha());
 

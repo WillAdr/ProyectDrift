@@ -27,16 +27,26 @@ public class PedidoRepository {
         return pedidoDao.listarPedidosPorUsuario(idUsuario);
     }
 
-    // ✅ checkout: inserta pedido + vacía carrito
     public void checkout(int idUsuario, List<CarritoProducto> carrito, double total, String fecha, Runnable onSuccess) {
         ProyectoFinalDatabase.DB_EXECUTOR.execute(() -> {
-            // Inserta pedido
-            pedidoDao.insertar(new PedidoEntity(idUsuario, total, fecha));
-
-            // Vacía carrito
+            String resumen = buildResumen(carrito);
+            pedidoDao.insertar(new PedidoEntity(idUsuario, total, fecha, resumen));
             carritoDao.vaciarCarrito(idUsuario);
-
             if (onSuccess != null) onSuccess.run();
         });
+    }
+
+    private String buildResumen(List<CarritoProducto> carrito) {
+        if (carrito == null || carrito.isEmpty()) return "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < carrito.size(); i++) {
+            CarritoProducto it = carrito.get(i);
+            if (it == null) continue;
+            String nom = it.nombre == null ? "" : it.nombre.trim();
+            if (nom.isEmpty()) continue;
+            sb.append(it.cantidad).append("x ").append(nom);
+            if (i < carrito.size() - 1) sb.append(", ");
+        }
+        return sb.toString();
     }
 }

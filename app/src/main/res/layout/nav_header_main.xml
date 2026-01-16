@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_header_pro"
+        android:background="@drawable/carw"
         android:padding="14dp"
         android:orientation="vertical">
 
@@ -22,7 +22,7 @@
                 android:id="@+id/imgAvatar"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
-                android:src="@drawable/ic_placeholder_producto"
+                android:src="@drawable/care"
                 android:scaleType="centerCrop"
                 android:background="@drawable/bg_drawer_glass"
                 android:padding="6dp"/>
@@ -73,18 +73,9 @@
             android:text="demo@proyectofinal.com"
             android:textColor="#CCFFFFFF"
             android:textSize="13sp"/>
-
         <View
             android:layout_width="match_parent"
             android:layout_height="10dp"/>
-
-        <TextView
-            android:id="@+id/tvHint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tip: cambia tema en Perfil ✨"
-            android:textColor="#99FFFFFF"
-            android:textSize="12sp"/>
 
     </LinearLayout>
 

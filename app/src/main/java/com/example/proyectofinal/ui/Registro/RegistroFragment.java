@@ -17,6 +17,7 @@ import androidx.navigation.Navigation;
 import com.example.proyectofinal.R;
 import com.example.proyectofinal.data.entities.UsuarioEntity;
 import com.example.proyectofinal.databinding.FragmentRegistroBinding;
+import com.example.proyectofinal.ui.util.GlassUtil;
 
 public class RegistroFragment extends Fragment {
 
@@ -32,14 +33,14 @@ public class RegistroFragment extends Fragment {
         binding = FragmentRegistroBinding.inflate(inflater, container, false);
         registroViewModel = new ViewModelProvider(this).get(RegistroViewModel.class);
 
-        // Mensajes del VM
+        GlassUtil.applyGlass70Card(binding.cardRegistro);
+
         registroViewModel.getMensaje().observe(getViewLifecycleOwner(), msg -> {
             if (msg != null && !msg.isEmpty()) {
                 Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Éxito de registro -> navegar a Login
         registroViewModel.getIsSuccess().observe(getViewLifecycleOwner(), ok -> {
             if (ok != null && ok) {
                 NavController nav = Navigation.findNavController(binding.getRoot());
